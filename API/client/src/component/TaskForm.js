@@ -7,9 +7,7 @@ const TaskForm = () => {
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState('');
-    // const [priority, setPriority] = useState('');
   
-
     const handleChange = e => {
         setTitle(e.target.value);
     };
@@ -63,13 +61,6 @@ const TaskForm = () => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
-                {/* <input
-                type="select"
-                name="priority"
-                id="priority"
-                value={priority}
-                onChange={(e) => setPriority(e.target.value)}
-                /> */}
             <div>
             <button type="submit" class="btn btn-dark me-3" className="btn add-description">{editDescription ? 'Edit Description' : 'Add Description'}</button>
             <button onClick={clearList} class="btn btn-dark" className="btn clear-btn">Clear</button>
