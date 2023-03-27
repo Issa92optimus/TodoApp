@@ -24,7 +24,7 @@ const TaskForm = () => {
             body: JSON.stringify({
                 title: title,
                 description: description,
-                // priority: priority
+                
             })
         })
         .then(resp => resp.json())
