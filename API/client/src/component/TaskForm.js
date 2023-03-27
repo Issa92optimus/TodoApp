@@ -1,12 +1,13 @@
 import React, {useContext, useState, useEffect} from "react";
 import { TaskListContext } from "../context/TaskListContext";
 
+
 const TaskForm = () => {
-    const {addTask, clearList, editItem, editTask} = useContext(TaskListContext)
+    const {addTask, clearList, editItem, editTask, editDescription} = useContext(TaskListContext)
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState('');
-    const [priority, setPriority] = useState('');
+    // const [priority, setPriority] = useState('');
   
 
     const handleChange = e => {
@@ -15,7 +16,7 @@ const TaskForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-                fetch('http://127.0.0.1:3000', {
+                fetch('http://127.0.0.1:3000/todo_app', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -23,7 +24,7 @@ const TaskForm = () => {
             body: JSON.stringify({
                 title: title,
                 description: description,
-                priority: priority
+                // priority: priority
             })
         })
         .then(resp => resp.json())
@@ -54,7 +55,7 @@ const TaskForm = () => {
                 <button type="submit" class="btn btn-dark me-3" className="btn add-todo">{editItem ? 'Edit Todo' : 'Add Todo'}</button>
                 <button onClick={clearList} class="btn btn-dark" className="btn clear-btn">Clear</button>
             </div>
-            <Input
+            <input
                 type="textarea"
                 name="description"
                 id="description"
@@ -62,13 +63,17 @@ const TaskForm = () => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
-            <Input
+                {/* <input
                 type="select"
                 name="priority"
                 id="priority"
                 value={priority}
                 onChange={(e) => setPriority(e.target.value)}
-            />
+                /> */}
+            <div>
+            <button type="submit" class="btn btn-dark me-3" className="btn add-description">{editDescription ? 'Edit Description' : 'Add Description'}</button>
+            <button onClick={clearList} class="btn btn-dark" className="btn clear-btn">Clear</button>
+            </div>
         </form>
     )
 }

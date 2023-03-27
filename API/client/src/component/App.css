@@ -6,7 +6,7 @@ body
 {  
     margin: 0;  
     padding: 0;  
-    background-color: lightblue;  
+    background-color: cornflowerblue;
     font-family: 'Arial';  
 }
 
@@ -99,7 +99,7 @@ body
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   border-radius: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px rgba(255, 0, 0, 0.3);
   outline: none;
   cursor: pointer;
 }
@@ -123,22 +123,22 @@ body
   outline: none;
 }
 
-.btn-delete i {
+.btn-delete .task-btn {
   font-size: 16px;
-  color: #bbb;
+  color: white;
   margin-right: 20px;
 }
 
-.btn-edit i {
+.btn-edit .task-btn {
   font-size: 16px;
-  color: #bbb;
+  color: white;
   margin-right: 20px;
 }
 
 
 
-.no-tasks {
-  color: #777;
+.no-todos {
+  color: white;
   text-align: center;
   font-size: 18px;
   margin-top: 20px;
