@@ -5,6 +5,9 @@ const TaskForm = () => {
     const {addTask, clearList, editItem, editTask} = useContext(TaskListContext)
 
     const [title, setTitle] = useState("")
+    const [description, setDescription] = useState('');
+    const [priority, setPriority] = useState('');
+  
 
     const handleChange = e => {
         setTitle(e.target.value);
@@ -12,13 +15,15 @@ const TaskForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-                fetch('http://127.0.0.1:3000/todo_app', {
-            method: "GET",
+                fetch('http://127.0.0.1:3000', {
+            method: "POST",
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify({
                 title: title,
+                description: description,
+                priority: priority
             })
         })
         .then(resp => resp.json())
@@ -49,6 +54,21 @@ const TaskForm = () => {
                 <button type="submit" class="btn btn-dark me-3" className="btn add-todo">{editItem ? 'Edit Todo' : 'Add Todo'}</button>
                 <button onClick={clearList} class="btn btn-dark" className="btn clear-btn">Clear</button>
             </div>
+            <Input
+                type="textarea"
+                name="description"
+                id="description"
+                placeholder="Enter description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            <Input
+                type="select"
+                name="priority"
+                id="priority"
+                value={priority}
+                onChange={(e) => setPriority(e.target.value)}
+            />
         </form>
     )
 }
