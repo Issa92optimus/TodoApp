@@ -11,6 +11,45 @@ class ApplicationController < ActionController::API
         }, status: status
     end
 
+    # hash data token
+    def encode(uid, email)
+        payload = {
+            data: {
+                uid: uid,
+                email: email
+            },
+            exp: Time.now + (6 * 3600)
+        }
+        begin
+        JWT.encode(payload, ENV['todo_app_key'], 'HS256')
+        rescue JWT::EncodeError => e
+            app_response(message: 'failed', status: 400, data: { info: 'Something went wrong. Please try again' })
+        end
+    end
+
+    # unhash token
+    def decode(token)
+        begin
+            JWT.decode(token, ENV['todo_app_key'], true, { algorithm: 'HS256' })
+        rescue JWT::DecodeError => e
+            app_response(message: 'failed', status: 401, data: { info: 'Your session has expired. Please login again to continue' })
+        end
+    end
+
+    # Verify authorization headers
+    def verify_auth
+        auth_headers = request.headers['Authorization']
+        unless auth_headers
+            app_response(message: 'failed', status: 401, data: { info: 'Your request is not authorized' })
+        end
+        token = auth_headers.split( ' ' )[1]
+        render json: {
+            data: decode(token)
+        }
+    end
+
+
+
     # store user id in session
     def save_user(id)
         session[:uid] = id
