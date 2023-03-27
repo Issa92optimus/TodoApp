@@ -815,3 +815,480 @@ Processing by UsersController#login as */*
 Completed 422 Unprocessable Entity in 314ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 1389)
 
 
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 11:35:44 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93d8e39a40>, params: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93d8e39a40>, params: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}} }[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'Raymond' OR email = 'ray96@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93d8e39a40>, params: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}} }[0m
+Completed 200 OK in 314ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 2906)
+
+
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:38:36 +0300
+Processing by ApplicationController#verify_auth as */*
+Completed 500 Internal Server Error in 2ms (Views: 0.3ms | Allocations: 713)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:8:in `app_response'
+app/controllers/application_controller.rb:80:in `standard_error'
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:39:05 +0300
+Processing by ApplicationController#verify_auth as */*
+Completed 500 Internal Server Error in 3ms (Views: 0.3ms | Allocations: 699)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:8:in `app_response'
+app/controllers/application_controller.rb:80:in `standard_error'
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:40:10 +0300
+Processing by ApplicationController#verify_auth as */*
+Completed 422 Unprocessable Entity in 2ms (Views: 0.3ms | Allocations: 627)
+
+
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:41:48 +0300
+Processing by ApplicationController#verify_auth as */*
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | Allocations: 123)
+
+
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:42:24 +0300
+Processing by ApplicationController#verify_auth as */*
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | Allocations: 123)
+
+
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:42:24 +0300
+Processing by ApplicationController#verify_auth as */*
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | Allocations: 116)
+
+
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:42:56 +0300
+Processing by ApplicationController#verify_auth as */*
+Completed 200 OK in 2ms (Views: 0.5ms | Allocations: 236)
+
+
+Started GET "/verify" for 127.0.0.1 at 2023-03-27 11:45:01 +0300
+Processing by ApplicationController#verify_auth as */*
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 210)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 11:52:01 +0300
+Processing by TodosController#index as */*
+Filter chain halted as :verify_auth rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | Allocations: 147)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 11:53:06 +0300
+Processing by TodosController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:75:in `user'
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 62ms (Views: 2.4ms | ActiveRecord: 3.8ms | Allocations: 14972)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 11:53:23 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93d40c3130>, params: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93d40c3130>, params: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}} }[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'Raymond' OR email = 'ray96@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93d40c3130>, params: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}} }[0m
+Completed 200 OK in 331ms (Views: 0.7ms | ActiveRecord: 0.8ms | Allocations: 1698)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 11:53:31 +0300
+Processing by TodosController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:75:in `user'
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 5ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 1307)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-27 11:55:36 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.7ms | Allocations: 1399)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2023-03-27 11:56:00 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/login"):
+  
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 11:56:12 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93d88aa6d8>, params: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93d88aa6d8>, params: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}} }[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'Raymond' OR email = 'ray96@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93d88aa6d8>, params: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}} }[0m
+Completed 200 OK in 310ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 1467)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-27 11:56:31 +0300
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.7ms | Allocations: 1370)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 11:57:09 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93cc2276a0>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93cc2276a0>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'Issah' OR email = 'issanyale96@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93cc2276a0>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+Completed 401 Unauthorized in 320ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 1063)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 11:57:27 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93c846b0f0>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93c846b0f0>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'Issah' OR email = 'issanyale96@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93c846b0f0>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+Completed 401 Unauthorized in 327ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 1083)
+
+
+Started GET "/users/login/check" for 127.0.0.1 at 2023-03-27 11:58:09 +0300
+Processing by UsersController#check_login_status as */*
+  Parameters: {"username"=>"Issah", "email"=>"issa96@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"Issah", "email"=>"issa96@gmail.com"}}
+Completed 200 OK in 15ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 366)
+
+
+Started GET "/users/login/check" for 127.0.0.1 at 2023-03-27 11:58:21 +0300
+Processing by UsersController#check_login_status as */*
+  Parameters: {"username"=>"Issah", "email"=>"issa96@gmail.com", "user"=>{"username"=>"Issah", "email"=>"issa96@gmail.com"}}
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 330)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 11:58:57 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93d0040478>, params: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93d0040478>, params: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}} }[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'Raymond' OR email = 'ray96@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93d0040478>, params: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}} }[0m
+Completed 401 Unauthorized in 316ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1066)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 11:59:08 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93cc236510>, params: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93cc236510>, params: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}} }[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'Raymond' OR email = 'ray96@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93cc236510>, params: {"username"=>"Raymond", "email"=>"ray96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Raymond", "email"=>"ray96@gmail.com"}} }[0m
+Completed 200 OK in 337ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 1459)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 11:59:39 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93c42c8378>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93c42c8378>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'Issah' OR email = 'issanyale96@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93c42c8378>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+Completed 401 Unauthorized in 335ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 1083)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 11:59:46 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93c90b0e78>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93c90b0e78>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'Issah' OR email = 'issanyale96@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f93c90b0e78>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+Completed 200 OK in 341ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 1460)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 12:00:12 +0300
+Processing by TodosController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:75:in `user'
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 16ms (Views: 7.7ms | ActiveRecord: 0.8ms | Allocations: 1305)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-27 12:17:00 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.5ms | Allocations: 661)
+Completed 200 OK in 15ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 5305)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-27 12:17:00 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.8ms | Allocations: 450)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 1145)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 12:17:08 +0300
+Processing by TodosController#index as HTML
+Filter chain halted as :verify_auth rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 182)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-27 12:17:08 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/login/users" for 127.0.0.1 at 2023-03-27 12:17:26 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/login/users"):
+  
+Started GET "/login" for 127.0.0.1 at 2023-03-27 12:17:31 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started GET "/" for 127.0.0.1 at 2023-03-27 12:17:38 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 15)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 194)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-27 12:17:43 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 27ms (Views: 17.8ms | ActiveRecord: 1.3ms | Allocations: 19820)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 12:18:09 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f7184dea9e8>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f7184dea9e8>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'Issah' OR email = 'issanyale96@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f7184dea9e8>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+Completed 200 OK in 300ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1818)
+
+
+Started GET "/users/todos" for 127.0.0.1 at 2023-03-27 12:18:18 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/todos"):
+  
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 12:18:50 +0300
+Processing by TodosController#index as */*
+  Parameters: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "todo"=>{}}
+Filter chain halted as :verify_auth rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 122)
+
+
+Started GET "/ws" for ::1 at 2023-03-27 13:22:08 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for ::1 at 2023-03-27 13:22:17 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 13:30:34 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TodosController#index as */*
+  Parameters: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "todo"=>{}}
+Filter chain halted as :verify_auth rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.8ms | ActiveRecord: 2.3ms | Allocations: 188)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2023-03-27 13:30:59 +0300
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f2458a5b198>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f2458a5b198>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = 'Issah' OR email = 'issanyale96@gmail.com') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `login'
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: login, request: #<ActionDispatch::Request:0x00007f2458a5b198>, params: {"username"=>"Issah", "email"=>"issanyale96@gmail.com", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"login", "user"=>{"username"=>"Issah", "email"=>"issanyale96@gmail.com"}} }[0m
+Completed 200 OK in 835ms (Views: 3.1ms | ActiveRecord: 2.9ms | Allocations: 35914)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 13:31:15 +0300
+Processing by TodosController#index as */*
+Filter chain halted as :verify_auth rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 123)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 13:33:43 +0300
+Processing by TodosController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:75:in `user'
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 81ms (Views: 2.8ms | ActiveRecord: 1.2ms | Allocations: 6440)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 13:33:54 +0300
+Processing by TodosController#index as */*
+Filter chain halted as :verify_auth rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 122)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 13:34:03 +0300
+Processing by TodosController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:75:in `user'
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 16ms (Views: 6.7ms | ActiveRecord: 0.8ms | Allocations: 1324)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 13:35:18 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7InVpZCI6MSwiZW1haWwiOiJpc3NhbnlhbGU5NkBnbWFpbC5jb20ifSwiZXhwIjoxNjc5OTI5MTg2fQ.m241HBsqHAF4O3QOXiQfbE_NPhjz-hR-CEXz8oTLnkA
+Processing by TodosController#index as */*
+Filter chain halted as :verify_auth rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 13:35:55 +0300
+Processing by TodosController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:75:in `user'
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 19ms (Views: 11.1ms | ActiveRecord: 0.9ms | Allocations: 1322)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-27 13:36:14 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.9ms | Allocations: 1399)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-27 13:39:46 +0300
+Processing by TodosController#create as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:75:in `user'
+Completed 422 Unprocessable Entity in 184ms (Views: 22.3ms | ActiveRecord: 2.7ms | Allocations: 20522)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 13:40:01 +0300
+Processing by TodosController#index as */*
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:75:in `user'
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 16ms (Views: 7.6ms | ActiveRecord: 1.8ms | Allocations: 1307)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 13:43:47 +0300
+Processing by TodosController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:75:in `user'
+Completed 422 Unprocessable Entity in 91ms (Views: 0.8ms | ActiveRecord: 7.1ms | Allocations: 11610)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 13:43:55 +0300
+Processing by TodosController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:75:in `user'
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 79ms (Views: 5.8ms | ActiveRecord: 6.4ms | Allocations: 10141)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 13:59:59 +0300
+Processing by TodosController#index as */*
+Completed 500 Internal Server Error in 3ms (Views: 0.5ms | Allocations: 746)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:88:in `standard_error'
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 14:00:22 +0300
+Processing by TodosController#index as */*
+Completed 500 Internal Server Error in 2ms (Views: 0.3ms | Allocations: 724)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:7:in `app_response'
+app/controllers/application_controller.rb:88:in `standard_error'
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 14:10:10 +0300
+Processing by TodosController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:74:in `user'
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 29ms (Views: 2.4ms | ActiveRecord: 1.2ms | Allocations: 9468)
+
+
+Started GET "/todos" for 127.0.0.1 at 2023-03-27 14:10:13 +0300
+Processing by TodosController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:74:in `user'
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 7ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 1306)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-27 14:10:21 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.8ms | Allocations: 1434)
+
+
+Started GET "/ws" for ::1 at 2023-03-27 14:28:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/ws" for ::1 at 2023-03-27 15:35:02 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/" for ::1 at 2023-03-27 15:35:11 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.2ms | Allocations: 459)
+Completed 200 OK in 19ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 3484)
+
+
+Started GET "/todos" for ::1 at 2023-03-27 15:35:15 +0300
+Processing by TodosController#index as HTML
+Filter chain halted as :verify_auth rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 182)
+
+
+Started GET "/favicon.ico" for ::1 at 2023-03-27 15:35:15 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/users" for ::1 at 2023-03-27 15:35:19 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/application_controller.rb:8:in `app_response'
+Completed 200 OK in 118ms (Views: 84.5ms | ActiveRecord: 4.1ms | Allocations: 19825)
+
+

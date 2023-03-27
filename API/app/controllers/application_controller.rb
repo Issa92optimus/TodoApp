@@ -18,7 +18,7 @@ class ApplicationController < ActionController::API
                 uid: uid,
                 email: email
             },
-            exp: Time.now + (6 * 3600)
+            exp: Time.now.to_i + (6 * 3600)
         }
         begin
         JWT.encode(payload, ENV['todo_app_key'], 'HS256')
@@ -39,17 +39,15 @@ class ApplicationController < ActionController::API
     # Verify authorization headers
     def verify_auth
         auth_headers = request.headers['Authorization']
-        unless auth_headers
-            app_response(message: 'failed', status: 401, data: { info: 'Your request is not authorized' })
+            if !auth_headers
+                app_response(message: 'failed', status: 401, data: { info: 'Your request is not authorized' })
+            else
+                token = auth_headers.split( ' ' )[1]
+                save_user_id(token)
         end
-        token = auth_headers.split( ' ' )[1]
-        render json: {
-            data: decode(token)
-        }
     end
 
-
-
+    
     # store user id in session
     def save_user(id)
         session[:uid] = id
@@ -73,9 +71,20 @@ class ApplicationController < ActionController::API
 
     # get logged in user
     def user
+        User.find(@uid)
+    end
+
+    # save user id
+    def save_user_id(token)
+        @uid = decode(token)[0]["data"]["uid"].to_i
+    end
+
+    # get logged in user (session)
+    def user_session
         User.find(session[:uid].to_i) 
     end
 
+    # rescue all common errors
     def standard_error(exception)
         app_response(message: 'failed', data: { info: exception.message }, status: :unprocessable_entity)
     end

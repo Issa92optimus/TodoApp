@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get '/todos', to: 'todos#index'
   put 'todos/:id', to: 'todos#update'
   delete 'todos/:id', to: 'todos#destroy'
+
+  get '/verify', to: 'application#verify_auth'
 end

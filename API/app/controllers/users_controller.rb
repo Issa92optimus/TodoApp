@@ -29,7 +29,8 @@ class UsersController < ApplicationController
             app_response(message: 'Invalid username/email or password', status: :unauthorized)
         end
     end
-
+    
+    
     def logout
         remove_user
         app_response(message: 'Logout successful')
