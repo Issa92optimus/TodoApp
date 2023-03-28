@@ -5,23 +5,33 @@ import TaskList from './TaskList';
 import TaskForm from './TaskForm';
 import Header from './Header';
 import TaskListContextProvider from '../context/TaskListContext';
+import Navbar from './Navbar';
+import Signup from './Signup'
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 
-
-function App () {
+function App() {
   return (
+    <BrowserRouter>
+    <Navbar />
+    <Routes>
+        <Route path="/sign-up" element={<Signup/>}/>
+        <Route path="/login" element={<Login/>} />
+      </Routes>
     <TaskListContextProvider>
-      <Login />
-    <div className='container'>
-      <div className='app-wrapper'>
-        <div className='main'>
+     <div className='container'>
+       <div className='app-wrapper'>
+         <div className='main'>
           <Header />
           <TaskForm />
           <TaskList />
         </div>
       </div>
     </div>
-    </TaskListContextProvider>
-  );
-  }
+      </TaskListContextProvider>
+      </BrowserRouter>
 
-export default App;
+  );
+
+}
+
+export default App
