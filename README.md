@@ -1,6 +1,5 @@
 # TODO-APP PROJECT
 
-<<<<<<< HEAD
 ## Introduction
 Welcome to my TodoApp project.This is a fullstack mini web application that is build React `frontend` and Rails `backend`.
 
