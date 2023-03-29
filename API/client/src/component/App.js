@@ -2,7 +2,6 @@ import React from 'react';
 import Login from './Login';
 import "./App.css";
 import Navbar from './Navbar';
-import Signup from './Signup';
 import TaskList from './TaskList';
 import TaskForm from './TaskForm';
 import Header from './Header';
@@ -13,8 +12,8 @@ function App() {
   return (
     <BrowserRouter>
     <Navbar />
+    <Login />
     <Routes>
-        <Route path="/sign-up" element={<Signup/>}/>
         <Route path="/login" element={<Login/>} />
       </Routes>
         <TaskListContextProvider>
