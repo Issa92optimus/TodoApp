@@ -7,13 +7,11 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // login
     console.log(username, password);
     setIsLoggedIn(true);
   }
 
   const handleLogout = () => {
-    // logout 
     setIsLoggedIn(false);
   }
 
@@ -25,6 +23,7 @@ const Login = () => {
           <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (
+        <div className='container'>
         <form onSubmit={handleSubmit}>
           <label className='form-label'>
             Username:
@@ -38,6 +37,7 @@ const Login = () => {
           <br />
           <button type="submit" className='btn btn-primary'>Login</button>
         </form>
+          </div>
       )}
     </div>
   );

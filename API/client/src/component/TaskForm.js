@@ -48,9 +48,9 @@ const TaskForm = () => {
 
     return (
         <form onSubmit={handleSubmit} className="form">
-            <input onChange={handleChange} value={title} type="text" className="todo-input" placeholder="Add Todo..." required/>
+            <input onChange={handleChange} value={title} type="text" className="task-input" placeholder="Add Task..." required/>
             <div className="buttons">
-                <button type="submit" class="btn btn-dark me-3" className="btn add-todo">{editItem ? 'Edit Todo' : 'Add Todo'}</button>
+                <button type="submit" class="btn btn-dark me-3" className="btn add-task">{editItem ? 'Edit Task' : 'Add Task'}</button>
                 <button onClick={clearList} class="btn btn-dark" className="btn clear-btn">Clear</button>
             </div>
             <input
