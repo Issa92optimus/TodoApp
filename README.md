@@ -1,5 +1,6 @@
 # TODO-APP PROJECT
 
+<<<<<<< HEAD
 ## Introduction
 Welcome to my TodoApp project.This is a fullstack mini web application that is build React `frontend` and Rails `backend`.
 
@@ -214,3 +215,5 @@ After the project is deployed there will be no need to run npm start as there wi
 ## Author
 
 Changawa Issa.
+=======
+>>>>>>> fe00782ed0edfe45a1fab92f96c6d2c09f8dd662
